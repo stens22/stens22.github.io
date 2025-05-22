@@ -1,4 +1,3 @@
-
 // Preloader
 
 window.addEventListener('load', function(){
@@ -11,7 +10,7 @@ window.addEventListener('load', function(){
 // iTyped 
 
 window.ityped.init(document.querySelector('.iTyped'), {
-    strings: ["I'm a Student", 'I Love Html5', 'I Love CSS3', 'I Love Jquery', 'I Love Angular', 'I Love Java '],
+    strings: ["Welcome to My Portfolio"],
     loop: true
 });
 
@@ -110,7 +109,9 @@ const nav = document.querySelector('.nav'),
 
 for (let i = 0; i < totalNavList; i++) {
     const a = navList[i].querySelector('a');
-    a.addEventListener('click', function(){
+    a.addEventListener('click', function(e){
+        e.preventDefault();
+        
         // remove back section class
         removeBackSectionClass();
 
@@ -123,56 +124,35 @@ for (let i = 0; i < totalNavList; i++) {
         }
 
         this.classList.add('active');
-
         showSection(this);
 
         if (window.innerWidth < 1200) {
             asideSectionTogglerBtn();
         }
-
     });
 }
 
-function addBackSectionClass(num) 
-{
+function addBackSectionClass(num) {
     allSection[num].classList.add('back-section');
 }
 
-function removeBackSectionClass() 
-{
+function removeBackSectionClass() {
     for (let i = 0; i < totalSection; i++) {
         allSection[i].classList.remove('back-section');
     }
 }
 
-function updateNav(element) 
-{
-    for (let i = 0; i < totalNavList; i++) {
-        navList[i].querySelector('a').classList.remove('active');
-        const target = element.getAttribute('href').split('#')[1];
-        if (target === navList[i].querySelector('a').getAttribute('href').split('#')[1]) {
-            navList[i].querySelector('a').classList.add('active');
-        }
-    }
-}
-
-document.querySelector('.hire-me').addEventListener('click', function(){
-    const sectionIndex = this.getAttribute('data-section-index');
-    addBackSectionClass(sectionIndex);
-    showSection(this);
-    updateNav(this);
-    removeBackSectionClass();
-});
-
-function showSection(element) 
-{
+function showSection(element) {
     for (let i = 0; i < totalSection; i++) {
         allSection[i].classList.remove('active');
     }
 
     const target = element.getAttribute('href').split('#')[1];
-
-    document.querySelector('#'+target).classList.add('active');
+    const targetSection = document.querySelector('#'+target);
+    
+    if (targetSection) {
+        targetSection.classList.add('active');
+    }
 }
 
 const navTogglerBtn = document.querySelector('.nav-toggler'),
