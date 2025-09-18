@@ -4,6 +4,30 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Rubik:500,700,900&display=swap');
 
+/* Base styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.main-container {
+    display: flex;
+}
+
+.aside {
+    width: 270px;
+    background: #fdf9ff;
+    position: fixed;
+    height: 100%;
+    border-right: 1px solid #e8dfec;
+}
+
+.main-content {
+    margin-left: 270px;
+    width: calc(100% - 270px);
+}
+
 /* General Style */
 body {
     margin: 0;
@@ -410,11 +434,12 @@ select {
   padding-left: 0;
   font-size: 16px;
   line-height: 1.8;
+  margin-top: 20px;
 }
-
 .skill-list li::before {
   content: "✔ ";
-  color: #4caf50;
+  color: #4CAF50;
+  margin-right: 6px;
 }
 .aside .nav li a {
     font-size: 16px;

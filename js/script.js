@@ -9,9 +9,14 @@ window.addEventListener('load', function(){
 
 // iTyped 
 
-window.ityped.init(document.querySelector('.iTyped'), {
-    strings: ["Welcome to My Portfolio"],
-    loop: true
+window.addEventListener('load', function() {
+    // Initialize iTyped
+    const iTyped = new Typed('.iTyped', {
+        strings: ['Web Developer', 'Student at FINKI', 'Software Engineer'],
+        typeSpeed: 100,
+        backSpeed: 60,
+        loop: true
+    });
 });
 
 // Portfolio Item Filter
